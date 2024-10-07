@@ -8,10 +8,6 @@
         "maxLambdaSize": "15mb",
         "runtime": "python3.9"
       }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/bash"
     }
   ],
   "routes": [
@@ -23,5 +19,12 @@
       "src": "/(.*)",
       "dest": "Ecomb/wsgi.py"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "your_project.settings",
+      "PYTHONPATH": "."
+    },
+    "command": "pip3 install -r requirements.txt && python3 manage.py collectstatic --noinput"
+  }
 }
