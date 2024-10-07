@@ -64,7 +64,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     # Add more origins as needed
 ]
-
 # settings.py
 
 TEMPLATES = [
@@ -164,7 +163,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-
 # Email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv("EMAIL_HOST")
@@ -176,7 +174,6 @@ EMAIL_HOST_PASSWORD =  os.getenv("EMAIL_HOST_PASSWORD")
 ACCOUNT_EMAIL_VERIFICATION =  os.getenv("ACCOUNT_EMAIL_VERIFICATION")
 EMAIL_USE_SSL =  os.getenv("EMAIL_USE_SSL")
 
-
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'dispatchriders'
 LOGOUT_REDIRECT_URL = 'login'
@@ -185,8 +182,6 @@ LOGOUT_REDIRECT_URL = 'login'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
