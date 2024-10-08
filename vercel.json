@@ -19,12 +19,5 @@
       "src": "/(.*)",
       "dest": "Ecomb/wsgi.py"
     }
-  ],
-  "build": {
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "your_project.settings",
-      "PYTHONPATH": "."
-    },
-    "command": "pip3 install -r requirements.txt && python3 manage.py collectstatic --noinput"
-  }
+  ]
 }
