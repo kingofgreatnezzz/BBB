@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_KEY")
+SECRET_KEY = 'django-insecure-sh(n-9dxmf52zl6lpqts(mz^bkajl+5%bkc=(jgdihm4*_ck#z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("ON_OFF")
+DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'store',
+    'drf_yasg',
     'dispatch',
 
 ]
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware', # cors headers
+    'whitenoise.middleware.WhiteNoiseMiddleware',# whitenoise 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -163,6 +165,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
+
 # Email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv("EMAIL_HOST")
@@ -177,6 +180,7 @@ EMAIL_USE_SSL =  os.getenv("EMAIL_USE_SSL")
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'dispatchriders'
 LOGOUT_REDIRECT_URL = 'login'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
